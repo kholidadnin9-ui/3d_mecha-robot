@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #050811;
+    font-family: 'Rajdhani', system-ui, -apple-system, sans-serif;
+    overscroll-behavior: none;
+  }
+}
+
+.font-display {
+  font-family: 'Orbitron', 'Chakra Petch', sans-serif;
+}
+
+.font-tech {
+  font-family: 'Chakra Petch', 'Rajdhani', sans-serif;
+}
+
+.game-touch-none {
+  touch-action: none;
+}
+
+@keyframes floatDamage {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0px) scale(0.65);
+  }
+  18% {
+    opacity: 1;
+    transform: translate(-50%, -18px) scale(1.15);
+  }
+  35% {
+    transform: translate(-50%, -26px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -64px) scale(0.85);
+  }
+}
+
+.animate-damage-float {
+  animation: floatDamage 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes lowHpPulse {
+  0%, 100% {
+    opacity: 0.22;
+  }
+  50% {
+    opacity: 0.65;
+  }
+}
+
+.animate-low-hp {
+  animation: lowHpPulse 1.1s ease-in-out infinite;
+}
+
+@keyframes dangerFlash {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.95;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+.animate-danger-banner {
+  animation: dangerFlash 0.38s ease-in-out infinite;
+}
+
+.clip-hud-bar-left {
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+}
+
+.clip-hud-bar-right {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 5% 100%);
+}
+
+.clip-hex-panel {
+  clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px), 0 12px);
+}
